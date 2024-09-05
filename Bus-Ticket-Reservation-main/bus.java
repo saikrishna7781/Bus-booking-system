@@ -1,7 +1,5 @@
 import java.util.Scanner;
-// Define a class for managing bus bookings
 class bus{
-    // Define static instances for each seat
     public static book p1=new book(1,null);
     public static book p2=new book(2,null);
     public static book p3=new book(3,null);
@@ -10,25 +8,20 @@ class bus{
     public static book p6=new book(6,null);
     public static book p7=new book(7,null);
     public static book p8=new book(8,null);
-    // Define a nested class for individual bookings
     public static class book{
         int data;
         book next;
         String name;
-        // Constructor for initializing booking data
         book(int data,String name){
             this.data=data;
         }
-        // Method to print booking details
+     
         public void print(){
             System.out.println("*** Thank you for booking ****");
             System.out.println("Name : "+this.name+"\nseat no : "+this.data);
         }
     }
-    // Method to check availability of a specific seat
     public static book check(int num){
-        // Check each seat and return if available
-        // Otherwise, return null
         if(num== p1.data){
             if(p1.name==null){
                 return(p1);
@@ -71,10 +64,7 @@ class bus{
         }
         return null;
     }
-    // Method to count and display available seats
     public static void check2(){
-        // Iterate through each seat and count available ones
-        // Print the count of available seats
         int count=0;
         if(p1.name==null){
             count+=1;
@@ -102,9 +92,7 @@ class bus{
         }
         System.out.println("their are available seats are "+count);
     }
-    // Method to display the seating arrangement
     public static void display(){
-        // Generate a visual representation of seat availability
         String s1,s2,s3,s4,s5,s6,s7,s8;
         if(p1.name == null){
             s1="1";
@@ -149,11 +137,7 @@ class bus{
         System.out.println(s1+"\t"+s2+"\t\t"+s3+"\t"+s4);
         System.out.println(s5+"\t"+s6+"\t\t"+s7+"\t"+s8);
     }
-    // Method to cancel a booking
     public static void cancel(int name){
-        // Check if the seat is booked
-        // If booked, cancel the booking
-        // Otherwise, print a message indicating the seat is not booked
         book value=check1(name);
         if(value==null){
             System.out.println("seat is not booked");
@@ -206,9 +190,6 @@ class bus{
         return null;
     }
     public static void main(String[] args) {
-        // Initialize seat connections
-        // Start an infinite loop for user interaction
-        // Present options to the user and take appropriate actions based on input
         p1.next=p2;
         p2.next=p3;
         p3.next=p4;
